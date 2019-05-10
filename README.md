@@ -3,7 +3,7 @@
 
 <p align="center">
   <a href="https://github.com/fenggit/WebArt">
-	  <img src="images/webart.jpg" width="400" height="210"/>
+	  <img src="images/webart.jpg" width="100%" height="240"/>
   </a>
 </p>
 
