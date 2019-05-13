@@ -5,6 +5,61 @@
     <title>HTML - 4.表格</title>
 </head>
 <body>
+<h1>制作表格</h1>
+
+<table border="1">      <!--表格2行，3列表-->
+    <tr>                <!--行-->
+        <td>2014年</td> <!--列-->
+        <td>2015年</td>
+        <td>2016年</td>
+    </tr>
+    <tr>
+        <td>1000人</td>
+        <td>5000人</td>
+        <td>3000人</td>
+    </tr>
+</table>
+
+<!--基本结构-->
+<table border="1">
+    <caption>表格标题，居中显示</caption>
+    <tr>
+        <th>表头，默认加粗</th>
+        <th>表头，默认加粗</th>
+    </tr>
+
+    <tr>
+        <dd>列</dd>
+        <dd>列</dd>
+    </tr>
+</table>
+
+<table border="1">
+    <!--标题-->
+    <caption>人口统计</caption>
+    <thead>
+    <tr>
+        <!--表头-->
+        <th>2014年</th>
+        <th>2015年</th>
+        <th>2016年</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1000人</td>
+        <td>5000人</td>
+        <td>3000人</td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td>1000人</td>
+        <td>5000人</td>
+        <td>3000人</td>
+    </tr>
+    </tfoot>
+</table>
 
 </body>
 </html>
