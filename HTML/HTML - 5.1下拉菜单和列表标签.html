@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML - 5.1下拉菜单和列表标签</title>
+</head>
+<body>
+<form action="action.php" method="get" name="formData" target="_blank" enctype="multipart/form-data">
+    城市：
+    <select name="city">
+        <option value="1">--请选择--</option>
+        <option value="1">1111</option>
+        <option value="2">2222</option>
+        <option value="3">3333</option>
+        <option value="4">4444</option>
+    </select>
+
+    城市2：
+    <select name="city" size="6" multiple>
+        <option value="1">1111</option>
+        <option value="2" selected>2222</option>
+        <option value="3">3333</option>
+        <option value="4">4444</option>
+        <option value="5">5555</option>
+        <option value="6">6666</option>
+    </select>
+    城市3：
+    <select name="city">
+        <optgroup label="g1">
+            <option value="1">1111</option>
+            <option value="1">11111</option>
+            <option value="1">111111</option>
+        </optgroup>
+
+        <option value="2">2222</option>
+        <option value="3">3333</option>
+        <option value="4">4444</option>
+        <option value="5">5555</option>
+        <option value="6">6666</option>
+    </select>
+    <br/>
+    <input type="text" size="25">
+    <br/>
+
+    <textarea name="h" cols="50" rows="5" placeholder="输入文本"></textarea>
+
+    <input type="submit">
+</form>
+</body>
+</html>

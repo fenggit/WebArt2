@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML - 5.表单</title>
+</head>
+<body>
+<form>
+    <input type="button" name="button" value="click"/>
+</form>
+<br/>
+
+<form>
+    姓名：<input type="text" name="username"/>
+    密码：<input type="password" name="paw"/>
+    <input type="submit">
+</form>
+
+<br/>
+
+<h1 align="center">注册信息</h1>
+<hr color="#336699">
+<form>
+    <table width="600px" bgcolor="#f2f2f2" align="center" valign="center">
+        <tr>
+            <td align="right" bgcolor="#5f9ea0">姓名：</td>
+            <td bgcolor="#deb887"><input type="text" name="username" size="25" maxlength="6" placeholder="请输入姓名"/></td>
+        </tr>
+
+        <tr>
+            <td align="right">邮箱：</td>
+            <td><input type="text" name="email" size="25" value="@163.com"/></td>
+        </tr>
+        <tr>
+            <td align="right">密码：</td>
+            <td><input type="password" name="paw" size="25" placeholder="请输入密码"/></td>
+        </tr>
+        <tr>
+            <td align="right">确认密码：</td>
+            <td><input type="password" name="paw" size="25" placeholder="请再次输入密码"/></td>
+        </tr>
+        <tr>
+            <td align="right">上传照片：</td>
+            <td><input type="file" name="file"/></td>
+        </tr>
+        <tr>
+            <td align="right">性别：</td>
+            <td>
+                男<input type="radio" name="sex1" value="man"/>
+                女<input type="radio" name="sex1" value="woman" checked/>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">爱好：</td>
+            <td>
+                唱歌<input type="checkbox" name="dx1" value="sing"/>
+                跳舞<input type="checkbox" name="dx2" value="dance"/>
+                吹牛<input type="checkbox" name="dx3" value="niu"/>
+            </td>
+        </tr>
+
+        <tr>
+            <td align="right">按钮：</td>
+            <td colspan="2" align="center">
+                <input type="button" value="button"/>
+                <input type="submit"/>
+                <input type="reset"/>
+                <input type="image" name="image_button" src="../images/star.png">
+            </td>
+        </tr>
+
+        <tr>
+            <td><input type="hidden" name="hiddenStr" value="这个浏览器不显示大，传递给服务器"></td>
+        </tr>
+    </table>
+</form>
+
+
+</body>
+</html>
