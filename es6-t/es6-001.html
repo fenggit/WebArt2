@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        /*window.onload = function () {
+         var btn = document.getElementsByTagName('input');
+
+         for (let i = 0; i < btn.length; i++) {
+         btn[i].onclick = function () {
+         alert(i);
+         }
+         }
+         };*/
+
+        function setValues() {
+            let json = {a: 11, b: 12, c: 13};
+            let {a, b, c} = json;
+//            let [a, b, c] = [1, 2, 3];
+
+            console.log(a, b, c);
+            alert(a + "" + b + "" + c);
+        }
+
+        /*window.onload = function () {
+         alert("onload");
+         };*/
+
+
+        /*window.onload = () => {
+         alert("onload");
+         };*/
+
+        /* document.onclick = function (ev) {
+         alert(ev.clientX + " " + ev.clientY);
+         };*/
+
+        /*document.onclick = ev => {
+            alert(ev.clientX + " " + ev.clientY);
+        };*/
+
+        let sum = (a, b) => a + b;
+
+        let json = {
+            a: 10, b: 11,
+            show: function () {
+                console.log(this);
+                alert(this.a + " " + this.b);
+            }
+        };
+
+        //json.show();
+        document.onclick = json.show;
+    </script>
+</head>
+<body>
+
+<input type="button" value="aaaa"/>
+<input type="button" value="bbbb"/>
+<input type="button" value="cccc"/>
+<input type="button" value="dddd"/>
+<input type="button" value="解构赋值" onclick="setValues()"/>
+
+</body>
+</html>
