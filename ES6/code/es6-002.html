@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        // 1.map
+        let arr = [100, 23, 20, 90];
+
+        /*let res = arr.map(function (item, index) {
+            if (item >= 60) {
+                return true;
+            } else {
+                return false;
+            }
+        });*/
+
+        /*let res = arr.map(function (item, index) {
+            // 箭头函数
+            return item >= 60;
+        });*/
+
+        let res = arr.map(item => {
+            return item >= 60
+        });
+
+        console.log(res);
+
+        // 2.reduce
+        let a1 = [1, 2, 3, 4];
+        // tmp 第一次是第一个数，其次是相加后的值
+        let v = a1.reduce(function (tmp, item, index) {
+            return tmp + item;
+        });
+        console.log("total==>" + v);
+
+        // 求平均值
+        let av = a1.reduce((tmp, item, index) => {
+            if (index < a1.length - 1) {
+                return tmp + item;
+            } else {
+                return (tmp + item) / a1.length;
+            }
+        });
+        console.log("avg==>" + av);
+
+
+        // 3.forEach
+        arr.forEach((item, index) => {
+            //console.log("第" + index + "是" + item);
+            // 字符串模板
+            console.log(`第${index}个是${item}`);
+        });
+
+        // 4.filter
+        // 只显示偶数
+        let arr2 = arr.filter((item, index) => {
+            return item % 2 === 0;
+        }).filter(item => {
+                return item === 20
+            }
+        );
+        console.log("==>" + arr2);
+
+        // js内部可以不用""
+        let json = {a: 12, b: 13};
+        // 传输的时候，转化成标准的json
+        let vJson = JSON.stringify(json);
+        console.log(vJson);
+
+        let str = '{"a":12,"b":13}';
+        let jj = JSON.parse(str);
+        console.log(jj);
+
+    </script>
+</head>
+<body>
+
+<input type="button" value="aaaa"/>
+
+
+</body>
+</html>
