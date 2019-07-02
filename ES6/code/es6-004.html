@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>es6-003</title>
+
+    <script src="jquery-3.4.1.min.js" charset="utf-8"></script>
+
+    <!-- <script type="text/javascript">
+         // 异步操作
+         //1
+         $.ajax({
+             url: '../../data/1.json',
+             dataType: 'json',
+             success(data1) {
+                 console.log("1-> a&ndash;&gt;" + data1.a);
+
+                 //2
+                 $.ajax({
+                     url: '../../data/2.json',
+                     dataType: 'json',
+                     success(data2) {
+                         console.log("2->b&ndash;&gt;" + data2.b);
+
+                         //3
+                         $.ajax({
+                             url: '../../data/3.json',
+                             dataType: 'json',
+                             success(data3) {
+                                 console.log("3->b&ndash;&gt;" + data3.c);
+                             }
+                         });
+                     }
+                 });
+             }
+         });
+     </script>-->
+
+    <!--Promise-->
+    <script type="text/javascript">
+        // resolve: 解决，成功了
+        // reject: 拒绝，失败了
+        let p = new Promise(function (resolve, reject) {
+            $.ajax({
+                url: '../../data/1.json',
+                dataType: 'json',
+                success(data1) {
+                    resolve(data1);
+                },
+                error(res) {
+                    reject(res)
+                }
+            });
+        });
+
+        p.then(function (data) {
+            //resolve 成功
+            console.log("success-->" + data);
+        }, function (res) {
+            //reject 失败
+            console.log(`error object: ${res}`);
+            console.log(`${res.status}+||+${res.statusText}`);
+        })
+
+    </script>
+
+    <script type="text/javascript">
+        // 全部成功，才有结果
+        /*Promise.all([
+            $.ajax({url: "../../data/1.json", dataType: "json"}),
+            $.ajax({url: "../../data/2.json", dataType: "json"}),
+            $.ajax({url: "../../data/3.json", dataType: "json"}),
+        ]).then(function (arr) {
+            console.log(arr);
+
+            let [data1, data2, data3] = arr;
+            console.log(data1, data2, data3);
+
+        }, function (res) {
+            console.error(res);
+        });*/
+
+        // 3个都是异步处理的
+        Promise.all([
+            $.ajax({url: "../../data/1.json", dataType: "json"}),
+            $.ajax({url: "../../data/2.json", dataType: "json"}),
+            $.ajax({url: "../../data/3.json", dataType: "json"}),
+        ]).then(([data1, data2, data3]) => {
+            console.log(data1, data2, data3);
+
+        }, (res) => {
+            console.error(res);
+        });
+    </script>
+
+    <!--async/await-->
+    <script type="text/javascript">
+
+        // 包含异步操作
+        async function show() {
+            let data1 = await $.ajax({url: "../../data/1.json", dataType: "json"});
+
+            if (data1.a > 10) {
+                alert("a")
+            } else {
+                alert("b")
+            }
+
+            let data2 = await $.ajax({url: "../../data/2.json", dataType: "json"});
+            let data3 = await $.ajax({url: "../../data/3.json", dataType: "json"});
+
+            console.log("async/await==>", data1, data2, data3);
+        }
+
+        show();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
