@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--有问题：alert的i一直是最后1个-->
+    <script>
+        window.onload = function () {
+            var btnArr = document.getElementsByTagName('input');
+
+            for (var i = 0; i < btnArr.length; i++) {
+                btnArr[i].onclick = function () {
+                    alert(i);
+                }
+            }
+        }
+    </script>
+
+    <!--解决方法-：使用ES6的语法-->
+    <script>
+        window.onload = function () {
+            const btnArr = document.getElementsByTagName('input');
+
+            for (let i = 0; i < btnArr.length; i++) {
+                btnArr[i].onclick = function () {
+                    alert(i);
+                }
+            }
+        }
+    </script>
+
+    <!--解决方法二：闭包-->
+    <script>
+        window.onload = function () {
+            var btnArr = document.getElementsByTagName('input');
+
+            for (var i = 0; i < btnArr.length; i++) {
+                (function (i) {
+                    btnArr[i].onclick = function () {
+                        alert(i);
+                    }
+                })(i);
+            }
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="aaa">
+<input type="button" value="bbb">
+<input type="button" value="ccc">
+</body>
+</html>

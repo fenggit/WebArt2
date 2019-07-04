@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        // ES5
+        // 对象
+        function Person(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        Person.prototype.show = function () {
+            alert(this.name + " ||" + this.age)
+        };
+
+        //var p = new Person("Tom", 18);
+        //p.show();
+
+
+        // 继承
+        function Worker(name, age, job) {
+            Person.call(this, name, age);
+            this.job = job;
+        }
+
+        Worker.prototype = new Person();
+        Worker.prototype.constructor = Worker;
+        Worker.prototype.showJob = function () {
+            alert(this.job)
+        };
+        var p = new Worker("Tom", 18);
+        p.showJob();
+
+    </script>
+
+    <script>
+        // ES6
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            show() {
+                alert(this.name + " ||" + this.age)
+            }
+        }
+
+        let p = new Person("zhang", "11");
+        p.show();
+
+        // 继承
+        class Worker extends Person {
+            constructor(name, age, job) {
+                super(name, age);
+                this.job = job;
+            }
+            showJob(){
+                alert(this.job)
+            }
+        }
+
+        let worker = new Worker("zhang", "11","job");
+        worker.showJob();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
