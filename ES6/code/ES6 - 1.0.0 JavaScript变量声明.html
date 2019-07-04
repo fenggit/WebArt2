@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--1.不会出现任何错误-->
+    <script>
+        var a = 12;
+        var a = 10;
+        //alert(a);
+    </script>
+
+    <!--2.没有快级别作用域-->
+    <script>
+        function show() {
+            var a1 = 11;
+            console.log("a1:" + a1);
+        }
+
+        show();
+
+        a1 = 12;
+        console.log("a1:" + a1);
+    </script>
+</head>
+<body>
+
+</body>
+</html>
