@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        // js风格
+        //let re = new RegExp('\\d+', 'g');
+
+        // prel风格
+        //let re2 = /\d+/g;
+
+
+        // 查找a的位置
+        let str = "Abbasdsdsa";
+        //alert(str.indexOf("a"));
+
+        // i:忽略大小写
+        let re = /a/i;
+        //alert(str.search(re))
+
+
+        let str1 = "shfj342hh3jh2j3bj3243 e435gdf";
+        let re1 = /\d+/g;
+        //let re1 = /\d+/ig;
+        let re2 = /\d+/;
+       // alert(str1.match(re2))
+
+        //把A/a替换成*
+        // g：全局
+        // i：忽略大小写
+        let str2 = "asasd fasAd f13sdfAAqw12z";
+        alert(str2.replace(/a/gi, '*'));
+
+
+        // 去除所有的空白字符
+        let str3="he llo#wor  ld";
+        alert(str3.replace(/\s+/g,""))
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

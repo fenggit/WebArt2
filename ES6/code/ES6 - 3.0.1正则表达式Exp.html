@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+
+        // 把## 换成换行
+        window.onload = function () {
+            let d = document.getElementById("div1");
+            let str = "asdasdaa##dsf##sdfsdfsf##svvxcv";
+
+            //d.innerHTML = str.replace(/##/g, "<br/>");
+
+            //方法二
+            d.innerHTML = str.split(/##/g).map(item => {
+                return '<p>${item}</p>';
+            }).join('');
+        }
+
+    </script>
+</head>
+<body>
+<div id="div1">
+
+</div>
+</body>
+</html>
