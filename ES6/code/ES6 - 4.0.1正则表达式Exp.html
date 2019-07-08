@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        // 校验QQ号
+        window.onload=function () {
+            var text = document.getElementById("text1");
+            var btn = document.getElementById("btn");
+            
+            btn.onclick = function () {
+                // 5-11位QQ，第一位不能是0
+                // let reg = /[1-9]{4,11}/;
+                // ^ 和 $限制开头和结尾
+                let reg = /^[1-9]{4,11}$/;
+
+                // “2312aa” 有一部分合法，test也是认为符合要求的
+                if(reg.test(text.value)){
+                    alert("QQ合法");
+                }else{
+                    alert("QQ不合法");
+                }
+            };
+
+            let r = /\.jsx?$/;
+            //alert("1.html.js".match(r));
+            //alert("1.html.js.png".match(r));
+            alert(r.test("1.html.js"));
+            //alert(r.test("1.html.js.png"));
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" id="text1">
+<input type="button" id="btn" value="check QQ">
+</body>
+</html>
