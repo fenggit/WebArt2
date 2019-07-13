@@ -52,4 +52,47 @@ HTTP 2.0    RFC-7540 加密，头部压缩，服务器推送，管线操作，�
 GET：<=32k
 POST
 
+5. 处理get数据中的url数据
+使用url模块
 
+- url
+> 解析： username=1&password=2
+> const url = require('url');
+>  let resultAll = url.parse(req.url, true);
+
+```js
+url.parse(req.url,true){
+    // 解析获取
+    // pathname ， query
+}
+```
+
+6. 接收post数据
+post数据分多次传递，传递是的二进制数据，数据在body
+
+- queryString
+
+> const queryString = require('querystring');
+> let post = queryString.parse(d.toString());
+> "querystring" = > 解析：username=1&password=2
+
+```js
+let arr = [];
+
+    // 事件
+    req.on("data", buffer => {
+        // buffer 二进制数据
+        //console.log(buffer);
+        arr.push(buffer);
+    });
+    req.on("end", () => {
+        let d = Buffer.concat(arr);
+        // 如果是文件，则无法 toString
+        console.log(d.toString());
+
+        let post = queryString.parse(d.toString());
+        console.log(post);
+    });
+```
+
+> 表单不存在跨域行为，ajax有跨域问题
