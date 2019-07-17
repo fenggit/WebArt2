@@ -9,6 +9,7 @@ exp：注册和登录
 2.接口
 
 [服务](../code/login_server.js)
+[前端](../www/login.html)
 
 开启服务
 > node account_server.js
@@ -29,3 +30,6 @@ error = 0 : 失败
     error:1,
     msg:"错误信息
 }
+
+
+> http://localhost:8080/mylogin.html

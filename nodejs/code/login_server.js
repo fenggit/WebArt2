@@ -42,31 +42,54 @@ http.createServer((req, res) => {
 
     function complete() {
         console.log("===>", path, get, post);
+        let r = {};
 
         // router
         if (path == '/reg') {
             let {username, password} = get;
 
-            let r;
-
-            if (users['username']) {
+            if (users[username]) {
                 r = {error: 1, msg: '此用户已经存在'};
 
             } else {
-                users['username'] = username;
-                users['password'] = password;
-                r = {error:0, msg: 'success:'+users['username']+"||"+users['password']};
+                users[username] = username;
+                users[password] = password;
+                r = {error: 0, msg: 'success:' + users[username] + "||" + users[password]};
             }
 
             res.write(JSON.stringify(r));
             res.end();
-
         } else if (path == '/login') {
             // 102
+            let {username, password} = get;
+
+            if (!users[username]) {
+                r = {error: 1, msg: '用户不存在'};
+            } else if (users[password] != password) {
+                r = {error: 1, msg: '密码错误'};
+            } else {
+                r = {error: 0, msg: '登陆成功'};
+            }
+
+            res.write(JSON.stringify(r));
+            res.end();
         } else {
-            // file operation
+            // file operation，中转要显示的html路径
+            fs.readFile(`../www${path}`, (error, buffer) => {
+                if (error) {
+                    res.writeHeader(404);
+                    r = {error: 1, msg: 'Not Found'};
+                    res.write(JSON.stringify(r));
+                    res.end();
+                } else {
+                    res.write(buffer);
+                    res.end();
+                }
+            })
 
         }
+
+
     }
 
 }).listen(8080);
