@@ -46,3 +46,5 @@ module.exports = {
     b: 5
 };
 ```
+
+>node mod2.js
