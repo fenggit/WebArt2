@@ -18,7 +18,7 @@ http.createServer((req, res) => {
         path = pathname;
         get = query;
 
-        complete();
+        complete(req.method);
     } else if (req.method == "POST") {
         path = req.url;
 
@@ -33,20 +33,22 @@ http.createServer((req, res) => {
             post = querystring.parse(buffer.toString());
             console.log(post);
 
-            complete();
+            complete(req.method);
         });
     }
 
     //res.write("success");
     //res.end();
 
-    function complete() {
+    function complete(method) {
         console.log("===>", path, get, post);
         let r = {};
 
         // router
         if (path == '/reg') {
-            let {username, password} = get;
+
+            let {username, password} = data(method);
+
 
             if (users[username]) {
                 r = {error: 1, msg: '此用户已经存在'};
@@ -61,7 +63,7 @@ http.createServer((req, res) => {
             res.end();
         } else if (path == '/login') {
             // 102
-            let {username, password} = get;
+            let {username, password} = data(method);
 
             if (!users[username]) {
                 r = {error: 1, msg: '用户不存在'};
@@ -74,8 +76,15 @@ http.createServer((req, res) => {
             res.write(JSON.stringify(r));
             res.end();
         } else {
+            // 加载资源文件,一般有独立的服务器，上传资源
+            let filePath;
+            if (path == '/lib/jquery-3.4.1.min.js') {
+                filePath = `../../${path}`;
+            } else {
+                filePath = `../www${path}`;
+            }
             // file operation，中转要显示的html路径
-            fs.readFile(`../www${path}`, (error, buffer) => {
+            fs.readFile(filePath, (error, buffer) => {
                 if (error) {
                     res.writeHeader(404);
                     r = {error: 1, msg: 'Not Found'};
@@ -88,8 +97,14 @@ http.createServer((req, res) => {
             })
 
         }
+    }
 
-
+    function data(method) {
+        if (method == "POST") {
+            return post;
+        } else {
+            return get;
+        }
     }
 
 }).listen(8080);

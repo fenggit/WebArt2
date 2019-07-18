@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>login</title>
-    <script src="../../lib/jquery-3.4.1.min.js" charset="utt-8"></script>
-    <script>
+    <script src="../../lib/jquery-3.4.1.min.js" type="text/javascript" charset="utt-8"></script>
+    <script type="text/javascript">
         $(function () {
             $('#btn1').click(() => {
                 $.ajax({
                     url: '/reg',
                     data: {
-                        username: $('user').val(),
-                        password: $('password').val()
+                        username: $('#user').val(),
+                        password: $('#password').val()
                     },
                     dataType: 'json',
-                    //method: GET
+                    type:'GET'
                 }).then(json => {
+                    // {"error":0,"msg":"登陆成功"}
                     if (json.error) {
-                        alert(json.message);
+                        alert(json.msg);
                     } else {
                         alert("注册成功")
                     }
@@ -30,27 +31,28 @@
                 $.ajax({
                     url: '/login',
                     data: {
-                        username: $('user').val(),
-                        password: $('password').val()
+                        username: $('#user').val(),
+                        password: $('#password').val()
                     },
                     dataType: 'json',
-                    //method: POST
+                    type:'POST'
+                }).then(json => {
+                    // error+msg：接口返回的数据字段
+                    if (json.error) {
+                        alert(json.msg);
+                    } else {
+                        alert("登陆成功")
+                    }
+                }, err => {
+                    alert("登陆失败：" + err);
                 })
-            }).then(json => {
-                if (json.error) {
-                    alert(json.message);
-                } else {
-                    alert("登陆成功")
-                }
-            }, err => {
-                alert("登陆失败：" + err);
             });
         })
     </script>
 </head>
 <body>
 用户名：<input type="text" id="user"><br>
-密码：<input type="password" id="pwd"><br>
+密码：<input type="password" id="password"><br>
 <input type="button" value="注册" id="btn1"><br>
 <input type="button" value="登陆" id="btn2">
 

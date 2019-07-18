@@ -6,10 +6,21 @@ exp：注册和登录
 - 请求文件 -> 结果
 - 请求接口 -> 操作
 
-2.接口
+2.登陆注册模块接口
 
-[服务](../code/login_server.js)
+> exp1
+[后台API](../code/my_login_server.js)
 [前端](../www/login.html)
+
+
+> exp2（完整）
+[后台API](../code/my_login_server.js)
+[前端](../www/mylogin.html)
+
+> 使用方法
+ > node my_login_server.js
+ > http://localhost:8080/mylogin.html
+
 
 开启服务
 > node account_server.js
@@ -30,6 +41,3 @@ error = 0 : 失败
     error:1,
     msg:"错误信息
 }
-
-
-> http://localhost:8080/mylogin.html
