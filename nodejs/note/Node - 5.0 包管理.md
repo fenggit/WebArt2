@@ -79,3 +79,5 @@ npm = cnpm = yarn
 用法
 > bower i xxx
 > bower i jquery
+
+自动生成bower_components文件，引用包都在这个目录下面
