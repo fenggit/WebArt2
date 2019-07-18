@@ -5,6 +5,14 @@ const fs = require("fs");
 
 let users = {};
 
+// 数据接口：用户名+密码
+/*
+let users = {
+    "username":"zhangsan",
+    "password":"1234"
+};
+*/
+
 http.createServer((req, res) => {
     res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
     // 接收数据
@@ -20,6 +28,7 @@ http.createServer((req, res) => {
 
         complete(req.method);
     } else if (req.method == "POST") {
+        // 问题：现在全部写在内存里面，到时候上传数据就会爆了
         path = req.url;
 
         var arr = [];
@@ -50,24 +59,25 @@ http.createServer((req, res) => {
             let {username, password} = data(method);
 
 
-            if (users[username]) {
+            if (users["username"]) {
                 r = {error: 1, msg: '此用户已经存在'};
 
             } else {
-                users[username] = username;
-                users[password] = password;
-                r = {error: 0, msg: 'success:' + users[username] + "||" + users[password]};
+                users["username"] = username;
+                users["password"] = password;
+                r = {error: 0, msg: 'success:' + users["username"] + "||" + users["password"]};
+                console.log(users);
             }
 
             res.write(JSON.stringify(r));
             res.end();
         } else if (path == '/login') {
-            // 102
+
             let {username, password} = data(method);
 
-            if (!users[username]) {
+            if (!users["username"]) {
                 r = {error: 1, msg: '用户不存在'};
-            } else if (users[password] != password) {
+            } else if (users["password"] != password) {
                 r = {error: 1, msg: '密码错误'};
             } else {
                 r = {error: 0, msg: '登陆成功'};
