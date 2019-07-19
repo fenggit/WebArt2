@@ -1,7 +1,7 @@
 // 引用系统http库
 const http = require('http');
 
-const queryString = require('querystring');
+const queryString = require('nodejs/nodelib/querystring');
 
 // client : http://localhost:8080/1.html
 let server = http.createServer((req, res) => { //有人来请求

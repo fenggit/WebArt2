@@ -1,6 +1,6 @@
 const http = require('http');
-const url = require("url");
-const querystring = require("querystring");
+const url = require("nodejs/nodelib/url");
+const querystring = require("nodejs/nodelib/querystring");
 const fs = require("fs");
 
 let users = {};

@@ -1,7 +1,7 @@
 // 引用系统http库
 const http = require('http');
 // 处理url
-const url = require('url');
+const url = require('nodejs/nodelib/url');
 
 
 // client : http://localhost:8080/1.html
