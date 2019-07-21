@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--传文件：enctype="multipart/form-data"-->
+<form method="post" action="http://localhost:8080/upload" enctype="multipart/form-data">
+    用户：<input type="text" name="username" value="zhangsan"><br>
+    密码：<input type="password" name="pwd" value="123456"><br>
+    <input type="file" name="f1"><br>
+    <input type="submit" value="提交数据">
+</form>
+</body>
+</html>
