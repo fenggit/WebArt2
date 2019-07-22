@@ -13,5 +13,9 @@
 
 在项目目录下面，运行安装，-D主要是为了在"package.json"，设置依赖
  - npm i multiparty -D
+ 
+ - npm file_server2
 
- - 
+ - 代码：[](../file/file_server2.js)
+ 
+ - 代码：[](../file/upload_file.html)
