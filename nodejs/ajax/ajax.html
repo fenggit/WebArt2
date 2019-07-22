@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript">
+        <!--跨域-->
+        window.onload = function () {
+            let btn1 = document.getElementById("btn1");
+            btn1.onclick = function () {
+                let ajax = new XMLHttpRequest();
+                // true:异步请求
+                ajax.open("GET", "http://localhost:8080/a", true);
+                // get请求，send不需要数据，post则需要，send发送请求的body
+                ajax.send();
+
+                // 等待数据返回
+                ajax.onreadystatechange = function () {
+                    // 0：初始化
+                    // 1：已连接
+                    // 2：已发送
+                    // 3：响应的头给我了
+                    // 4：响应的体给我了
+                    if (ajax.readyState == 4) {
+                        if (ajax.status >= 200 && ajax.status < 300 || ajax.status == 304) {
+                            alert("成功");
+                            alert(ajax.responseText);
+                            console.log(JSON.parse(ajax.responseText))
+                        } else {
+                            alert("失败")
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+<input type="button" value="request" id="btn1">
+</body>
+</html>
