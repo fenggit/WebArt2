@@ -36,14 +36,11 @@ Failed to load http://localhost:8080/a: No 'Access-Control-Allow-Origin' header 
 - jsonP：越用越少，不安全，当年ajax无法跨域，才火的
 <script src="">
 
+- Ajax2.0 ->Formdata：直接提交表单
+
 
 - jQuery方式ajax
 
-
-
-
-
-- Ajax2.0 ->Formdata：直接提交表单
 
 - Websocket
 
