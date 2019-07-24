@@ -23,15 +23,27 @@ Failed to load http://localhost:8080/a: No 'Access-Control-Allow-Origin' header 
     res.setHeader("Access-Control-Allow-Origin","*");
 ```
 
+- fetch ：原生的，用于替代ajax的XMLHttpRequest，好处不用引入新的库
+
+普通文本数据
+[](../fetch/fetch.html)
+
+支持文本，json，二进制数据（图片，视频，音频）
+
+处理二进制数据
+[](../fetch/fetch_blob.html)
+
+- jsonP：越用越少，不安全，当年ajax无法跨域，才火的
+<script src="">
 
 
 - jQuery方式ajax
 
-- jsonP
 
-- fetch
 
-- Ajax2.0 ->Formdata
+
+
+- Ajax2.0 ->Formdata：直接提交表单
 
 - Websocket
 

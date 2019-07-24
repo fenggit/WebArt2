@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            let img = document.getElementById("img1");
+
+            let btn1 = document.getElementById("btn1");
+            // 读取二进制数据
+            btn1.onclick = async function () {
+
+                //=====string===========
+                //1 请求
+                let res = await fetch("img.png");
+
+                //2 解析 二进制数据，这个需要等数据全部接收，如果文件过大，不适合这种方式
+                let blob = await res.blob();
+                // 临时，将二进制写入临时文件
+                let url = URL.createObjectURL(blob);
+
+                img.src = url;
+                console.log(blob)
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="show" id="btn1">
+<img id="img1">
+</body>
+</html>

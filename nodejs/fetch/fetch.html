@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            let btn1 = document.getElementById("btn1");
+            // 读取文件
+            btn1.onclick = async function () {
+
+                //=====string===========
+                //1 请求
+                let res = await fetch("1.txt");
+
+                //2 解析
+                console.log(res);
+
+                let str = await res.text();
+                //alert(str);
+
+
+                //=====json===========
+                //1 请求
+                let res2 = await fetch("2.json");
+
+                //2 解析
+                console.log(res2);
+
+                let json = await res2.json();
+                console.log(json);
+                alert(json['name'] + " || " + json["age"])
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="request" id="btn1">
+</body>
+</html>
