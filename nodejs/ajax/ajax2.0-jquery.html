@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="form1" action="http://localhost:8080" method="post">
+    用户：<input type="text" name="username"/><br>
+    密码：<input type="password" name="password"><br>
+    文件：<input type="file" name="f1"><br>
+    <input type="submit" value="提交">
+</form>
+
+<script src="../../lib/jquery-3.4.1.min.js"></script>
+<script>
+
+    $("#fom1").on("submit", function () {
+        let formdata = new FormData(this);
+
+        $.ajax({
+            url: this.action,
+            type: this.method,
+            data: formdata, // jquery会转换的
+            processData: false, // jquery不要处理数据
+            contentType: false // jquery不要篡改contentType
+        }).then(res => {
+            alert("成功");
+        }, error => {
+            alert("失败:" + error);
+        });
+
+        return false;
+    })
+
+</script>
+
+</body>
+</html>

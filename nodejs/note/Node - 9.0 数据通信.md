@@ -34,12 +34,21 @@ Failed to load http://localhost:8080/a: No 'Access-Control-Allow-Origin' header 
 [](../fetch/fetch_blob.html)
 
 - jsonP：越用越少，不安全，当年ajax无法跨域，才火的
-<script src="">
 
 - Ajax2.0 ->Formdata：直接提交表单
 
+[](../ajax/ajax2.0.html)
+[](../ajax/ajax2.0_server.js)
 
-- jQuery方式ajax
+    生成packagejson
+    > npm init -y
+    > npm install multiparty -D
+    package.json
+    > "start": "node ajax2.0_server.js"
+    > npm run start = npm start 
+
+- jQuery方式：提交Formdata
+
 
 
 - Websocket
