@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- id="form1" action="http://localhost:8080" method="post"-->
+<div>
+    用户：<input type="text" id="user"/><br>
+    密码：<input type="password" id="password"><br>
+    文件：<input type="file" id="f1"><br>
+    <button id="btn1" type="button">提交</button>
+</div>
+
+<script src="../../lib/jquery-3.4.1.min.js"></script>
+<script>
+    // 自己实现formdata
+    let btn1 = document.querySelector("#btn1");
+    btn1.onclick = function () {
+        let formdata = new FormData();
+
+        formdata.append("username", document.querySelector("#user").value);
+        formdata.append("password", document.querySelector("#password").value);
+        formdata.append("file1", document.querySelector("#f1").files[0]);
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("post", "http://localhost:8080", true);
+        xhr.send(formdata);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                alert("成功");
+            } else {
+                alert("失败");
+            }
+        };
+    };
+
+</script>
+
+</body>
+</html>

@@ -47,9 +47,14 @@ Failed to load http://localhost:8080/a: No 'Access-Control-Allow-Origin' header 
     > "start": "node ajax2.0_server.js"
     > npm run start = npm start 
 
-- jQuery方式：提交Formdata
+- jQuery方式：提交Formdata (有问题)
+[](../ajax/ajax2.0-jquery.html)
+[](../ajax/ajax2.0_server.js)
 
 
+- 自己实现Formdata
+[](../ajax/my-formdata-jquery.html)
+[](../ajax/ajax2.0_server.js)
 
 - Websocket
 
