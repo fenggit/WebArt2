@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+    拖到浏览器，查看request head
+
+    // 扩展信息
+    Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+    // 认证key，校验对象知道对方我在说什么
+    Sec-WebSocket-Key: 91FxOQHp/y2b78/eOlp+Gw==
+    // WebSocket版本
+    Sec-WebSocket-Version: 13
+    // 协议升级
+    Upgrade: websocket
+    -->
+
+    <script>
+        let ws = new WebSocket("ws://localhost:8080/");
+
+        ws.onopen = function () {
+            cnsole.log("client connect");
+        };
+
+        ws.onmessage = function () {
+
+        };
+
+        ws.onclose = function () {
+
+        };
+
+        ws.onerror = function () {
+
+        };
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

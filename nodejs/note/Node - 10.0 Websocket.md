@@ -16,4 +16,15 @@
     > [](../Websocket/client.html)
     
 3. 原生写法
- 
+   > [](../Websocket/natvie/server.js)
+   > [](../Websocket/natvie/client.html)
+   
+   
+     <!--
+       拖到浏览器，查看request head
+       
+       Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+       Sec-WebSocket-Key: 91FxOQHp/y2b78/eOlp+Gw==
+       Sec-WebSocket-Version: 13
+       Upgrade: websocket  //协议升级
+       -->
