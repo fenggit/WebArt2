@@ -7,12 +7,13 @@ const fs = require('fs');
 const mysql = require('mysql');
 
 // 1.连接数据库
-let db = mysql.createConnection({
+let db = mysql.createPool({
+    connectionLimit:10, // 默认连接池是10个，可以不写
     host: 'localhost',
     user: 'root',
     password: '123456',
     port: 3306,
-    database: 'user'
+    database: 'user'  // 数据库名
 });
 
 // 2.结合Http

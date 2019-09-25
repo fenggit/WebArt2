@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <title>Login</title>
 
-    <!--<script src="../../../lib/jquery-3.4.1.min.js" charset="utf-8"></script>-->
+    <!--    <script src="../../../lib/jquery-3.4.1.min.js" charset="utf-8"></script>-->
     <script src="/lib/jquery-3.4.1.min.js" charset="utf-8"></script>
 
     <script>
         $(document).ready(function () {
-            $('#reg').click(async () => {
-                alert("start");
+            $('#login').click(async () => {
+                let data = await $.ajax({
+                    url: 'http://localhost:8080/login',
+                    data: {
+                        username: $('#user').val(),
+                        password: $('#password').val()
+                    }
+                });
 
-                let data = $.ajax({
+                alert(data);
+            });
+
+            $('#reg').click(async () => {
+                let data = await $.ajax({
                     url: 'http://localhost:8080/reg',
                     data: {
                         username: $('#user').val(),
@@ -24,6 +34,8 @@
             });
 
         });
+
+
     </script>
 </head>
 <body>
