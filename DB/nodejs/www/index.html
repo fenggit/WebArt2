@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <script src="../../../lib/jquery-3.4.1.min.js" charset="utf-8"></script>
+
+    <script>
+        $('#reg').click(async () => {
+            let data = $.ajax({
+                url: 'http://localhost:8080/reg',
+                data: {
+                    username: $('#user').val(),
+                    password: $('#password').val()
+                }
+            });
+
+            alert(data);
+        })
+    </script>
+</head>
+<body>
+用户名：<input type="text" id="user"><br>
+密码：<input type="password" id="password"><br>
+<input type="button" value="注册" id="reg"><br>
+<input type="button" value="登录" id="login"><br>
+</body>
+</html>
