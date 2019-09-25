@@ -63,21 +63,6 @@ http.createServer((req, res) => {
     } else if (pathname == '/login') {
 
     } else {
-        if(pathname=='/lib/jquery-3.4.1.min.js'){
-            fs.readFile('../..' + pathname, (error, buffer) => {
-                if (error) {
-                    console.log(error);
-                    res.writeHeader(404);
-                    res.write("Not Found");
-                } else {
-                    res.write("ok");
-                    res.write(buffer);
-                }
-                res.end();
-            });
-            return
-        }
-
         fs.readFile('www' + pathname, (error, buffer) => {
             if (error) {
                 console.log(error);
