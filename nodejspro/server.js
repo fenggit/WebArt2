@@ -1,14 +1,4 @@
-const process = require('process');
+const config = require('./config/index'); //  默认会导入index.js
+const db = require('./lib/database');
 
-//sconsole.log(process);
-//console.log(process.env);
-console.log(process.env.OS);
-
-let mode = (process.env.OS == "Windows_NT" ? 'dec' : 'prod');
-console.log("mode=", mode);
-
-if (process.env.NODE_ENV === 'production') {
-    console.log('生产环境');
-} else {
-    console.log('非生产环境');
-}
+console.log(config);
