@@ -28,3 +28,7 @@ let json3 = { a:12,b:10,c:13}
 5. 项目
 [主服务](./server.js)
 [主页面](./static/index.html)
+
+6. 安装调试工具 : inspector
+
+> https://blog.csdn.net/u010476739/article/details/80159126
