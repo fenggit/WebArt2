@@ -9,6 +9,16 @@ const {HTTP_PORT, HTTP_ROOT, HTTP_UPLOAD} = require('../config'); // 配置文�
 
 // 启动服务
 http.createServer((req, res) => {
+    /**
+     * 提供写json数据的函数
+     * @param json
+     */
+    res.writeJson = function (json) {
+        res.setHeader("content-type", "application/json");
+        res.write(JSON.stringify(json));
+    };
+
+
     // 1. 解析数据
     let {pathname, query} = url.parse(req.url, true);
     if (req.method == 'POST') {
@@ -73,7 +83,7 @@ http.createServer((req, res) => {
      * @param post post数据
      * @param files post的文件数据
      */
-    function handle(method, url, get, post, files) {
+    async function handle(method, url, get, post, files) {
         let fn = router.findRouter(method, url);
         if (!fn) {
             // 路由不存在，则认为是文件存储
@@ -85,8 +95,17 @@ http.createServer((req, res) => {
                     res.end();
                 } else {
                     let rs = fs.createReadStream(filename);
-                    rs.on("error", () => {
+                    rs.on("error", error => {
+                        console.log("Error:" + error);
                     });
+                    /*setTimeout(() => {
+                        rs.close(); // 这可能不会关闭流。
+                        // 人工标记流的结束，就像底层的资源自身已表明文件的结束一样，允许流进行关闭。
+                        // 这不会取消挂起中的读取操作，如果存在此类操作，则过程可能仍无法成功地退出，直到完成。
+                        rs.push(null);
+                        rs.read(0);
+                    }, 1000);*/
+
                     let gz = zlib.createGzip();
                     res.setHeader('content-encoding', 'gzip');
                     rs.pipe(gz).pipe(res);
@@ -95,8 +114,8 @@ http.createServer((req, res) => {
         } else {
             // 接口
             try {
-                // TODO 待确认
-                fn(res, get, post, files);
+                // 对应server里面的js，addRouter函数里面的function
+                await fn(res, get, post, files);
             } catch (e) {
                 // 服务器出错
                 res.writeHead(500);

@@ -17,5 +17,8 @@
     "co-mysql": "^1.0.0",
     "multiparty": "^4.2.1",
     "mysql": "^2.17.1"
+  },
+  "dependencies": {
+    "package.json": "^2.0.1"
   }
 }
