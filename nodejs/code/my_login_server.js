@@ -53,7 +53,7 @@ http.createServer((req, res) => {
         console.log("===>", path, get, post);
         let r = {};
 
-        // router
+        // routers
         if (path == '/reg') {
 
             let {username, password} = data(method);
