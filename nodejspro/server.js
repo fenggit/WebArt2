@@ -12,5 +12,10 @@ const routers = require('./routers/index');
 // })();
 
 
+const process = require('process');
+// > node server.js --dev
+console.log(process.argv);
+
+
 
 
