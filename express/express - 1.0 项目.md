@@ -2,15 +2,16 @@
 
 1. 命令，安装express
 > npm init -y
-
 > npm i express -D
 
+
 2. express 
+
  - 自带路由
- 
  - 支持next
  
- 3. 支持的函数
+ 
+3. 支持的函数
  
  // url 是指路由，比如：/a ， /b
  get(url,fn()) : get
@@ -72,5 +73,7 @@ POST        body-parser (中间件)
 需要安装lib
 > npm i body-parser -D
 
+6. body-parser (中间件):用于处理post请求携带的数据，只能是数据传输的是：x-www-form-urlencoded
 
+7. multer : 处理上传文件的库，一般结合body-parser一起使用
 
