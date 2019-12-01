@@ -15,6 +15,9 @@ server.get('/a', (req, res, next) => {
 
 server.get('/b', (req, res, next) => {
     console.log("b 1111");
+
+    throw new Error("my error");
+
     // 继续执行下一个/b 路由
     // 传参数给下一个
     req.username = "zhangsan";
