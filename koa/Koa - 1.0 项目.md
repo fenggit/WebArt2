@@ -60,6 +60,50 @@ server2.js
 特殊情况:/news/:id/ 和 /news/1/
 > http://localhost:8080/news/1
 
-这个/news/:id/和?id=12有什么区别？
 
 
+8. 这个/news/:id/和news?id=12有什么区别？
+
+urlencoded  http://www.asas.com/user?a=12&b=23
+params      http://www.asas.com/uer/12/23
+
+区别：
+
+- urlencoded ：参数，顺序灵活，可省略的
+
+- params：必须要的参数，利于SEO，静态的
+
+9. 
+ctx.params:获取参数
+ctx.query: get数据参数部分
+ctx.method：请求方法
+ctx.url：请求的地址
+ctx.request:原始的request
+ctx.response：原始的response
+ctx.path
+ctx.ip：客户端的IP
+ctx。headers：请求过来的头
+
+10. server.context：想到于ctx的原型prototype
+> node server4.js
+> http://localhost:8080/a
+
+
+11. ctx.throw(code,msg) :报错退出
+> node server4.js
+
+> http://localhost:8080/login
+> http://localhost:8080/login?user=hefeng
+
+
+ctx.assert(条件，code,msg) ==等价于 if(条件) { ctx.throw(code,msg) }
+> node server4.js
+> http://localhost:8080/login2?user=hefeng
+> http://localhost:8080/login2
+
+
+ctx.state:状态码=>ctx.state=200
+ctx.redirect() :重定向
+ctx.attachment():下载
+
+>http://localhost:8080/redirect
