@@ -88,7 +88,7 @@ http.createServer((req, res) => {
         } else {
             // 加载资源文件,一般有独立的服务器，上传资源
             let filePath;
-            if (path == '/lib/jquery-3.4.1.min.js') {
+            if (path == '/libs/jquery-3.4.1.min.js') {
                 filePath = `../../${path}`;
             } else {
                 filePath = `../www${path}`;
