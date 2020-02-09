@@ -21,7 +21,7 @@ server.use(async (ctx, next) => {
 });
 ```
 
-4. 所有路由出错，捕获
+4. 所有路由出错，捕获；'*'代表所有的
 ```js
 
 let router = new Router();
